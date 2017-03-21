@@ -1,0 +1,181 @@
+<div class="col-lg-12 well">
+    <div class="row">
+        <form *ngIf="empresa">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-3 form-group">
+                        <label>Primer Nombre</label>
+                        <input type="text" placeholder="Ingresa aqui tu primer nombre" class="form-control">
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <label>Segundo Nombre</label>
+                        <input type="text" placeholder="Ingresa aqui tu segundo nombre" class="form-control">
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <label>Apellido Paterno</label>
+                        <input type="text" placeholder="Ingresa aqui tu apellido paterno" class="form-control">
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <label>Apellido Materno</label>
+                        <input type="text" placeholder="Ingresa aqui tu apellido materno" class="form-control">
+                    </div>
+
+                    <div class="col-sm-3 form-group">
+                        <label>Región</label>
+                        <select class="form-control">
+											  <option>LATAM</option>
+											</select>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <label>Departamento</label>
+                        <select class="form-control">
+											  <option>Lima </option>
+											  </select>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <label>Provincia</label>
+                        <select class="form-control">
+											  <option>Lima</option>
+										</select>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <label>Distrito</label>
+                        <select class="form-control">
+											  <option>Surquillo</option>
+											  
+											</select>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <label>Sucursal</label>
+                        <select class="form-control">
+											  <option>PANAMA</option>
+											  <option>MORRO</option>
+											  <option>ANGAMOS</option>
+											</select>
+                    </div>
+
+                    <div class="col-sm-3 form-group">
+                        <label>Usuario</label>
+                        <input type="text" placeholder="Ingresa aqui tu usuario" class="form-control">
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <label>Password</label>
+                        <input type="password" placeholder="Ingresa aqui tu password" class="form-control">
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <label>Cargo / Perfil</label>
+                        <select class="form-control">
+											  <option>Asistente de Taller</option>
+											</select>
+                    </div>
+
+                    <div class="col-sm-3 form-group">
+                        <label>Correo Electrónico</label>
+                        <input type="text" placeholder="Ingresa aqui tu e-mail" class="form-control">
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <label>Teléfono</label>
+                        <input type="text" placeholder="Ingresa aqui tu Teléfono" class="form-control">
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <label>Celular</label>
+                        <input type="text" placeholder="Ingresa aqui tu password" class="form-control">
+                    </div>
+                </div>
+
+                <div class="col-sm-3 form-group">
+                    <label>Asignación de Módulo</label>
+                    <div class="checkbox">
+                        <label>
+										<input type="checkbox" value="">
+										Módulo de Citas
+									  </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+										<input type="checkbox" value="">
+										Módulo de Producción
+									  </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+										<input type="checkbox" value="">
+										Módulo de Taller
+									  </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+										<input type="checkbox" value="">
+										Módulo de Almacén
+									  </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+										<input type="checkbox" value="">
+										Módulo de Facturación
+									  </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+										<input type="checkbox" value="">
+										Módulo de Ventas Vehículos
+									  </label>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <label>Opciones del módulo</label>
+                    <select class="form-control">
+										<option>Módulo de Citas</option>
+										<option>Módulo de Producción</option>
+										<option>Módulo de Taller</option>
+									</select>
+                </div>
+
+                <div class="col-sm-3 form-group">
+                    <label>Asignación de Módulo</label>
+                    <div class="checkbox">
+                        <label>
+										<input type="checkbox" value="">
+										Agendar
+									  </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+										<input type="checkbox" value="">
+										Consultar
+									  </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+										<input type="checkbox" value="">
+										Modificar
+									  </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+										<input type="checkbox" value="">
+										Imprimir Reporte
+									  </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+										<input type="checkbox" value="">
+										Actualizar Datos de Cliente
+									  </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+										<input type="checkbox" value="">
+										Asignar Trabajos
+									  </label>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <button type="button" class="btn btn-default" onclick="window.location.href='./usuarios.html'">Regresar</button>
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='./usuarios.html'">Grabar</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

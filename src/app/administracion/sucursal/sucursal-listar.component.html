@@ -1,0 +1,25 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Cod. Sucursal</th>
+        <th>Nombre</th>
+        <th colspan="2">Ingresar</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sucursal of sucursales">
+        <td>{{ sucursal.sucursalId}}</td>
+        <td>{{ sucursal.nombre}}</td>
+        <td> <a href="#" class="btn btn-primary">Editar</a></td>
+        <td> <a class="btn btn-primary" [routerLink]="['usuario',sucursal.sucursalId]">Usuarios</a></td>
+        <td>
+          <button *ngIf="sucursal.estado === '0'" type="button" (click)="cambioValor(sucursal)" [value]="sucursal" style="width:125px"
+            class="btn btn-danger">Dar de Baja</button>
+          <button *ngIf="sucursal.estado === '1'" type="button" (click)="cambioValor(sucursal)" [value]="sucursal" style="width:125px"
+            class="btn btn-info">Activar</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,6 @@
+<div *ngIf="mensaje.cuerpo" class="alert alert-{{mensaje.tipo}} alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <strong>Mensaje:</strong> {{mensaje.cuerpo}}
+</div>

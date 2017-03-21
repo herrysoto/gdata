@@ -1,0 +1,32 @@
+  <div class="table-responsive">
+    <section  *ngIf= "isCargando && !mensajeError">
+      Cargando data.
+    </section>
+    <table class="table table-striped" *ngIf= "empresas.length > 1">
+      <thead>
+        <tr>
+          <th>Cod. Empresa</th>
+          <th>Nombre</th>
+          <th>Ingresar</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empresa of empresas">
+          <td>{{ empresa.empresaId}}</td>
+          <td>{{ empresa.nombre}}</td>
+          <td> <a href="#" class="btn btn-primary" [routerLink]="['/empresas', empresa.empresaId]">Editar</a>
+           <a class="btn btn-primary" [routerLink]="['/sucursal',empresa.empresaId]">Sedes</a></td>
+          <td>
+              <button *ngIf="empresa.estado === '0'" type="button" (click)="cambioValor(empresa)" [value]="empresa" style="width:125px" class="btn btn-danger">Dar de Baja</button>
+              <button *ngIf="empresa.estado === '1'" type="button" (click)="cambioValor(empresa)" [value]="empresa" style="width:125px" class="btn btn-info">Activar</button>
+
+          </td>
+        </tr>
+      </tbody>
+      
+    </table>
+    <section *ngIf= "mensajeError">
+        {{mensajeError}}
+    </section>
+  </div>

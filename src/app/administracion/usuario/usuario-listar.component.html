@@ -1,0 +1,25 @@
+<div class="table-responsive">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Cod. Usuario</th>
+                <th>Nombre Completo</th>
+                <th>Cargo / Perfil</th>
+                <th>Usuario</th>
+                <th colspan="2">Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of usuarios">
+                <td>{{ usuario.usuarioId}}</td>
+                <td>{{ usuario.primerNombre}} {{usuario.apellidoPaterno}}</td>
+                <td>{{ usuario.nombrePerfil}}</td>
+                <td>{{ usuario.nombreUsuario}}</td>
+                <td><button type="button" class="btn btn-primary" [routerLink]="['/usuario',usuario.usuarioId]">Editar</button></td>
+                <td><button type="button" class="btn btn-warning">Dar de Baja</button></td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
