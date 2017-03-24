@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'login-root',
-    templateUrl: './login.html',
-    styleUrls: ['./login.component.css']
+    selector: 'login',
+    templateUrl: 'login.component.html'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+    constructor() { }
+
+    ngOnInit() { }
 }

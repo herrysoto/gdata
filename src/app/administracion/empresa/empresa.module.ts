@@ -1,3 +1,4 @@
+import { HomeComponent } from './../home/home.component';
 import { SharedModule } from './../../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { EmpresaListarComponent } from './empresa-listar.component';

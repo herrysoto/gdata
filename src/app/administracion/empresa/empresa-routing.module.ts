@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'sucursal/:empresaId', loadChildren : 'app/administracion/sucursal/sucursal.module#SucursalModule' }
 ];
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes)], 
   exports: [RouterModule]
 })
 export class EmpresaRoutingModule { }

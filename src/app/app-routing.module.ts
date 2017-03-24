@@ -1,10 +1,12 @@
-import { NgModule } from '@angular/core';
+import { LoginComponent } from './login/login.component';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
  import { PageNotFoundComponent} from './error404.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'empresas', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent }
+  // { path: '', component: LoginComponent },
+  { path: '', component: LoginComponent, pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent}
 
 ];
 @NgModule({

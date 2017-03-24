@@ -1,10 +1,17 @@
+/*@import url('../node_modules/bootstrap/dist/css/bootstrap-theme.min.css');*/
+@import url('../node_modules/primeng/resources/primeng.min.css');
+@import url('../node_modules/primeng/resources/themes/omega/theme.css');
+@import url('../node_modules/font-awesome/css/font-awesome.min.css');
+
 /*
  * Base structure
  */
 
 /* Move down content because we have a fixed navbar that is 50px tall */
-body {
-  padding-top: 50px;
+.cuerpo {
+  padding-top: 50px !important;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 /*
@@ -147,10 +154,6 @@ body {
 }
 .frm__logueo .form-control:focus{
     z-index: 2;
-}
-body{
-    margin-top: 40px;
-    margin-bottom: 40px;
 }
 *{
     -webkit-box-sizing: border-box;

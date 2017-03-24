@@ -73,7 +73,7 @@ export class EmpresaCrearComponent implements OnInit {
             });
     }
     gotoLisEmpresa() {
-        let link = [''];
+        let link = ['/g-data.motriz/users-admin'];
         this.router.navigate(link);
     }
     cboProvincia(ubigeoId: string) {

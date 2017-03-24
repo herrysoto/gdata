@@ -95,7 +95,7 @@ export class EmpresaDetalleComponent implements OnInit, OnDestroy {
     }
 
     gotoLisEmpresa() {
-        let link = [''];
+        let link = ['/g-data.motriz/users-admin'];
         this.router.navigate(link);
     }
 
