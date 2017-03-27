@@ -1,5 +1,80 @@
-<div>
+<!--<div>
     <button  type="button" class="btn btn-primary dropdown-toggle" [routerLink]="['/g-data.motriz/users-taller']">Ir a Taller</button>
     <button  type="button" class="btn btn-info dropdown-toggle" [routerLink]="['/g-data.motriz/users-admin']">Ir a Administración</button>
-</div>
+</div>-->
+
+<div id="spling-menu" class="container round">
+
+    <div class="item">
+        <div class="inner">
+            <div class="imagen7">
+                <div class="capa"></div>
+                <p> Agendamiento de Citas</p>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="inner">
+            <div class="imagen6">
+                <div class="capa"></div>
+                <p>Control de Producción</p>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="inner">
+            <div class="imagen5">
+                <div class="capa"></div>
+                <p> Administración y Finanzas</p>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="inner">
+            <div class="imagen4">
+                <div class="capa"></div>
+                <p> CRM</p>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="inner">
+            <div class="imagen3">
+                <div class="capa"></div>
+                <p> Facturación y Caja</p>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="inner">
+            <div class="imagen2">
+                <div class="capa"></div>
+                <p> Compras e Inventarios</p>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="inner">
+            <div class="imagen1">
+                <div class="capa"></div>
+                <p> Gestion de Taller</p>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="inner">
+            <div class="imagen0">
+                <div class="capa"></div>
+                <p>Venta de vehículos</p>
+            </div>
+        </div>
+    </div>
+    <div id="plus-button">
+        <form class="frm__logueo">
+            <h2 class="frm__logueo__cabecera">Iniciar sesión</h2>
+            <input type="email" id="inputEmail" [(ngModel)]="usuario" class="form-control" placeholder="Ingresar Usuario"  [ngModelOptions]="{standalone: true}" required="" autofocus="">
+            <input type="password" id="inputPassword" [(ngModel)]="clave" class="form-control" placeholder="Ingresar Password" [ngModelOptions]="{standalone: true}" required="" (keyup.enter) = "ingresar()">
+        </form>
+
+    </div>
 

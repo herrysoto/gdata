@@ -24,6 +24,8 @@
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
+        "./assets/js/circular.js",
+        "./assets/js/jquery.path.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js"
       ],
       "environmentSource": "environments/environment.ts",

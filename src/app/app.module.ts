@@ -1,3 +1,4 @@
+import { LogModule } from './log/log.module';
 import { TallerComponent } from './taller/taller.component';
 import { ContextMenuModule,GrowlModule,SplitButtonModule,DropdownModule,DialogModule,TieredMenuModule,DataTableModule, SharedModule,
     ButtonModule,PasswordModule,InputTextModule,MessagesModule,InputMaskModule,ConfirmDialogModule ,ConfirmationService} from 'primeng/primeng';
@@ -26,6 +27,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     FormsModule,
     LoginModule,
+    LogModule,
     HomeModule,
     EmpresaModule,
     AppRoutingModule,

@@ -16,7 +16,7 @@
           <td>{{ empresa.empresaId}}</td>
           <td>{{ empresa.nombre}}</td>
           <td> <a href="#" class="btn btn-primary" [routerLink]="['/empresas', empresa.empresaId]">Editar</a>
-           <a class="btn btn-primary" [routerLink]="['/sucursal',empresa.empresaId]">Sedes</a></td>
+           <a class="btn btn-primary" [routerLink]="['/g-data.motriz/users-admin/sucursal',empresa.empresaId]">Sedes</a></td>
           <td>
               <button *ngIf="empresa.estado === '0'" type="button" (click)="cambioValor(empresa)" [value]="empresa" style="width:125px" class="btn btn-danger">Dar de Baja</button>
               <button *ngIf="empresa.estado === '1'" type="button" (click)="cambioValor(empresa)" [value]="empresa" style="width:125px" class="btn btn-info">Activar</button>

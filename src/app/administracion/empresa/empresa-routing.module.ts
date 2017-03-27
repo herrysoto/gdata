@@ -15,7 +15,7 @@ const routes: Routes = [
       {path: 'empresas/:empresaId', component: EmpresaDetalleComponent },
       ]
   },
-  { path: 'sucursal/:empresaId', loadChildren : 'app/administracion/sucursal/sucursal.module#SucursalModule' }
+  { path: 'g-data.motriz/users-admin/sucursal/:empresaId', loadChildren : 'app/administracion/sucursal/sucursal.module#SucursalModule' }
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)], 
