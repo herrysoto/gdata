@@ -2,6 +2,7 @@
 @import url('../node_modules/primeng/resources/primeng.min.css');
 @import url('../node_modules/primeng/resources/themes/omega/theme.css');
 @import url('../node_modules/font-awesome/css/font-awesome.min.css');
+@import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
 
 /*
  * Base structure
@@ -155,12 +156,11 @@
 .frm__logueo .form-control:focus{
     z-index: 2;
 }
-*{
+/**{
     -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
-}
-
+}*/
 /* line 5, ../io/app-6.0.10/resources/extensions/ruby-sass.asar.unpacked/ruby_gems/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -390,7 +390,7 @@ body {
   position: relative;
   text-align: center;
   top: 50%;
-  left: 50%;
+  left: 200px !important;
   margin-left: -100px;
   margin-top: -60px;
   cursor: pointer;
@@ -435,6 +435,7 @@ body {
   background-color: black;
   -webkit-animation: popin 1s;
   -moz-animation: popin 1s;
+  box-sizing: content-box;    
   cursor: pointer; }
 
 /* line 86, ../../../Documents/pre-motriz/circular_menu-master/css/style.scss */
@@ -502,45 +503,45 @@ p {
   src: local("EuroStyle Normal"), url("./assets/font/EuroStyle Normal.woff") format("woff"); }
 /* line 154, ../../../Documents/pre-motriz/circular_menu-master/css/style.scss */
 .frm__logueo {
-  box-shadow: 0.5px 0.5px 2px 1px #888888;
-  background: #F5F5F5;
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto; }
+  box-shadow: 0.5px 0.5px 2px 1px #888888 !important;
+  background: #F5F5F5 !important;
+  max-width: 330px !important;
+  padding: 15px !important;
+  margin: 0 auto !important; }
 
 /* line 161, ../../../Documents/pre-motriz/circular_menu-master/css/style.scss */
 .frm__logueo .frm__logueo__cabecera,
 .frm__logueo .checkbox {
-  margin-bottom: 10px;
-  font-family: 'Eurostile'; }
+  margin-bottom: 10px !important;
+  font-family: 'Eurostile' !important; }
 
 /* line 166, ../../../Documents/pre-motriz/circular_menu-master/css/style.scss */
 .frm__logueo input[type="email"] {
   font-family: 'Eurostile';
-  margin-bottom: -1px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0; }
+  margin-bottom: -1px !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important; }
 
 /* line 172, ../../../Documents/pre-motriz/circular_menu-master/css/style.scss */
 .frm__logueo input[type="password"] {
-  font-family: 'Eurostile';
-  border-top-left-radius: 0;
-  border-top-right-radius: 0; }
+  font-family: 'Eurostile' !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important; }
 
 /* line 177, ../../../Documents/pre-motriz/circular_menu-master/css/style.scss */
 .frm__logueo .form-control {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  position: relative;
-  padding: 10px;
-  font-size: 16px;
-  height: auto; }
+  -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  padding: 10px !important;
+  font-size: 16px !important;
+  height: auto !important; }
 
 /* line 186, ../../../Documents/pre-motriz/circular_menu-master/css/style.scss */
 .frm__logueo .form-control:focus {
-  z-index: 2; }
+  z-index: 2 !important; }
 
 
 
-#plus-button2{position:relative;text-align:center;top:50%;left:50%;margin-left:-100px;margin-top:-60px;cursor:pointer;color:blue;width:300px;height:300px;padding-bottom:2px}
+#plus-button2{position:relative;text-align:center;top:50%;left:60%;margin-left:-100px;margin-top:-60px;cursor:pointer;color:blue;width:300px;height:300px;padding-bottom:2px}

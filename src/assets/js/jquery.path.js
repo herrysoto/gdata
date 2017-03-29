@@ -84,8 +84,8 @@
        var c1 = this.center[1] * (p ) + this.centerEnd[1] * (1-(p ));
        a = a * 3.1415927 / 180 // to radians
 
-       var x = (Math.sin(a) * r + c0 ) - 10;
-       var y = (Math.cos(a) * r + c1 )- 10;
+       var x = (Math.sin(a) * r + c0 ) - 30;
+       var y = (Math.cos(a) * r + c1 )- 30;
        return {top: y + "px", left: x + "px"}
      } 
 

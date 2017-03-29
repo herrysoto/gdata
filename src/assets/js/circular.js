@@ -127,7 +127,7 @@ Spling.MenuItem = (function () {
         end: end,
         dir: direction
       })
-    }, 750);
+    }, 2000);
     item.data("degree", end)
   }
   return this;
