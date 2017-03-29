@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 export const routes: Routes = [
   // { path: '', component: LoginComponent },
   { path: '', redirectTo: 'g-data.motriz/users-login', pathMatch: 'full' },
+  // {path: 'g-data.motriz/users-login', component: LoginComponent },
   { path: 'g-data.motriz/prueba', loadChildren : 'app/log/log.module#LogModule' },
   // { path: 'g-data.motriz/users-login', component: LoginComponent, pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent}

@@ -9,7 +9,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login.component';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent },
+  { path: '', redirectTo: '/g-data.motriz/users-login', pathMatch: 'full' }, //esto sirve para cambiar el paht'' por una dirección que desees
+  {path: 'g-data.motriz/users-login', component: LoginComponent },
   { path: 'g-data.motriz/users-admin', loadChildren: '../administracion/home/home.module#HomeModule',
     //  children : [
     //    { path: '', loadChildren: '../administracion/empresa/empresa.module#EmpresaModule'}]
