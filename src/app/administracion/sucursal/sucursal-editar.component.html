@@ -20,7 +20,7 @@
 
             <div class="col-sm-3 form-group">
               <label for="celular">Contacto</label>
-              <input type="text" name="celular" placeholder="Ingresa aqui el número de telefono fijo" required [(ngModel)]="sucursal.telefonoFijo"
+              <input type="text" name="celular" placeholder="Ingresa aqui el número de telefono fijo" required [(ngModel)]="sucursal.contacto"
                 class="form-control">
             </div>
 
@@ -70,7 +70,7 @@
             <div class="col-sm-3 form-group">
             </div>
             <div class="col-sm-3 form-group">
-              <button type="button" class="btn btn-default" (click)="gotoLisEmpresa()">Regresar</button>
+              <button type="button" class="btn btn-default" (click)="gotoLisSucursal()">Regresar</button>
               <button type="submit" class="btn btn-primary">Grabar</button>
             </div>
           </div>
@@ -79,5 +79,3 @@
     </div>
   </div>
 </div>
-
-<toast [mensaje]="toast.mensaje"></toast>

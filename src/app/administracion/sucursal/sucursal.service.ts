@@ -21,6 +21,17 @@ export class SucursalService {
       .map(mapSucursal);
     return sucursal$;
   }
+  crear(sucursal: Sucursal, empresaId: string): Observable<Response> {
+    return this
+      .http
+      .post(`${this.baseUrl}/sucursal/${empresaId}`, JSON.stringify(sucursal), { headers: this.getHeaders() }).catch(handleError);
+  }
+  actualizar(sucursal: Sucursal): Observable<Response> {
+    console.log(sucursal)
+    return this
+      .http.put(`${this.baseUrl}/sucursal/${sucursal.sucursalId}`, JSON.stringify(sucursal),
+      { headers: this.getHeaders() }).catch(handleError);
+  }
   private getHeaders() {
     let headers = new Headers();
     headers.append('Accept', 'application/json');
@@ -45,4 +56,11 @@ function mapSucursal(response: Response): Sucursal {
 
 function mapSucursales(response: Response): Sucursal[] {
   return response.json().map(toSucursal);
+}
+
+
+function handleError(error: any) {
+  let errorMsg = error.message || `Error al consumir api_endpoint`;
+  console.error(errorMsg);
+  return Observable.throw(errorMsg);
 }

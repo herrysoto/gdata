@@ -13,6 +13,7 @@ import { UbigeoService } from '../ubigeo/ubigeo.service';
 })
 export class EmpresaCrearComponent implements OnInit {
     empresa: Empresa;
+    id: string;
     departamentoSeleccionado: string;
     provinciaSeleccionada: string;
     distritoSeleccionado: string;

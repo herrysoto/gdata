@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-    API_ENDPOINT : 'http://localhost:8082/api/v1'
+    API_ENDPOINT : 'http://localhost:8082/api/v1',
+    API_ROOT_URL_ADMIN : 'g-data.motriz/users-admin/'
 };

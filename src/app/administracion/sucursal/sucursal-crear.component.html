@@ -1,0 +1,69 @@
+<div class="row">
+
+    <div class="col-lg-12 well">
+        <div class="row">
+
+            <form (ngSubmit)="grabar()" #sucursalForm="ngForm" *ngIf="sucursal">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-3 form-group">
+                            <label for="nombre">Nombre Comercial</label>
+                            <input type="text" name="nombre" placeholder="Ingresa aqui el nombre sucursal" required [(ngModel)]="sucursal.nombre" class="form-control"
+                                #nombre>
+                        </div>
+
+                        <div class="col-sm-3 form-group">
+                            <label for="direccion">Domicilio Fiscal</label>
+                            <input type="text" name="direccion" placeholder="Ingresa aqui el domicilio fiscal" required [(ngModel)]="sucursal.direccion"
+                                class="form-control">
+                        </div>
+
+                        <div class="col-sm-3 form-group">
+                            <label for="celular">Contacto</label>
+                            <input type="text" name="celular" placeholder="Ingresa aqui el número de telefono fijo" required [(ngModel)]="sucursal.contacto"
+                                class="form-control">
+                        </div>
+
+                        <div class="col-sm-3 form-group">
+                            <label for="Departamento">Departamento</label>
+                            <select class="form-control" #departamento [ngModel]="departamentoSeleccionado" name="sel1" (ngModelChange)="cboDepartamento($event)">
+                <option
+                   *ngFor="let departamento of departamentos"
+                   [ngValue]="departamento.ubigeoId">                      
+                      {{departamento.descripcion}}
+                      </option>
+              </select>
+                        </div>
+
+                        <div class="col-sm-3 form-group">
+                            <label for="provincia">Provincia</label>
+                            <select class="form-control" #provincia [ngModel]="provinciaSeleccionada" name="sel2" (ngModelChange)="cboProvincia($event)">
+                <option 
+                [value]="provincia.ubigeoId"
+                 *ngFor="let provincia of provincias">
+                 {{provincia.descripcion}}
+                 </option>
+              </select>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <label for="distrito">Distrito</label>
+                            <select class="form-control" #distrito [(ngModel)]="distritoSeleccionado" name="sel3">
+                <option
+                 [value]="distrito.ubigeoId" 
+                 *ngFor="let distrito of distritos">
+                 {{distrito.descripcion}}
+                 </option>
+              </select>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <button type="button" class="btn btn-default" (click)="gotoLisSucursal()">Regresar</button>
+                            <button type="submit" class="btn btn-primary">Grabar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
