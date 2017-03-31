@@ -12,7 +12,7 @@
       <tr *ngFor="let sucursal of sucursales">
         <td>{{ sucursal.sucursalId}}</td>
         <td>{{ sucursal.nombre}}</td>
-        <td> <a href="/g-data.motriz/users-admin" class="btn btn-primary">Editar</a></td>
+        <td> <a href="#"[routerLink]="['sucursal', sucursal.sucursalId]" class="btn btn-primary">Editar</a></td>
         <td> <a class="btn btn-primary" [routerLink]="['usuario',sucursal.sucursalId]">Usuarios</a></td>
         <td>
           <button *ngIf="sucursal.estado === '0'" type="button" (click)="cambioValor(sucursal)" [value]="sucursal" style="width:125px"

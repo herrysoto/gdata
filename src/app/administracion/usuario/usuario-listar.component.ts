@@ -11,7 +11,8 @@ export class UsuarioListarComponent implements OnInit, OnDestroy {
     sub: any;
     constructor(private _usuarioService: UsuarioService,
                 private route: ActivatedRoute,
-                private router: Router  ) { }
+                private router: Router  ) { console.log(route.url);
+                console.log(route.snapshot.url);  }
 
     ngOnInit() {
        this.sub = this.route.params.subscribe( params => {
