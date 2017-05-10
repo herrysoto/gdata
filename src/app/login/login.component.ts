@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     ingresar() {
         console.log(this.usuario);
         console.log(this.clave);
-        if (this.usuario === 'jmpaucarcaja' ||
+        if (this.usuario === 'jmpaucarcaja' &&
              this.clave === '123') {
             let link = ['g-data.motriz/prueba'];
             this.router.navigate(link);

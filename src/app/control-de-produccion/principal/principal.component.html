@@ -1,0 +1,850 @@
+  <!--cabecera donde va el nombre-->
+  <nav class="navbar navbar-inverse navbar-fixed-top" style="top=-11px;width: 100%;position: absolute;background: white;">
+    <div class="container-fluid content" style="border-radius: 3px;background-color: #428bca;">
+      <a class="navbar-brand" href="#" style="font-weight: bold;font-size: 12px;">EA NET</a>
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#" style="font-weight: bold;font-size: 12px;">Control de producción</a>
+      </div>
+    </div>
+  </nav>
+
+  <!--<div class="ui-g-12 ui-md-4">
+        <h3>Icon</h3>
+        <p-calendar [(ngModel)]="date3" [showIcon]="true"></p-calendar> <span style="margin-left:35px"></span>
+    </div>-->
+
+  <!--primer panel de prueba-->
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="width: 100%;margin-bottom: 3px;margin-top: 40px;padding-top: 10px;">
+    <div class="panel panel-default content" role="button" href="#collapseOne" style="margin: auto;">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            <span class="glyphicon glyphicon-chevron-down"></span>
+            Acciones y Consultas
+          </a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body" style="padding:10px;">
+          <a class="btn btn-primary" role="button" data-toggle="collapse" href="#primerboton" aria-expanded="false" aria-controls="primerboton">
+            Datos del cliente y vehículo
+          </a>
+          <!--<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#menu2" aria-expanded="false" aria-controls="collapseExample" style="float: right;margin-right: 20px;">
+                    Button with data-target
+                </button>-->
+          <a class="btn btn-primary" role="button" data-toggle="collapse" href="#segundoboton" aria-expanded="false" aria-controls="segundoboton"
+            style="float: right; margin-left: 15px;">
+              Historial del vehículo
+          </a>
+          <a class="btn btn-primary" role="button" data-toggle="collapse" href="#segundoboton" aria-expanded="false" aria-controls="segundoboton"
+            style="float: right;">
+              Buscar
+          </a>
+          <div class="collapse" id="primerboton">
+            <div class="well" style="float: left;width: 80%;">
+              <div class="row">
+
+                <div class="col-lg-12">
+                  <div class="row">
+
+                    <form>
+                      <div class="col-sm-12">
+                        <div class="row">
+                          <div class="col-sm-3 form-group">
+                            <label for="ruc">Nombre del cliente:</label>
+                            <input type="text" name="ruc"  required   class="form-control">
+                          </div>
+                          <div class="col-sm-3 form-group">
+                            <label for="nombre">DNI</label>
+                            <input type="text" name="nombre" required class="form-control"
+                              #nombre>
+                          </div>
+
+                          <div class="col-sm-3 form-group">
+                            <label for="direccion">Datos del carro</label>
+                            <input type="text" name="direccion"  required 
+                              class="form-control">
+                          </div>
+
+                          <div class="col-sm-3 form-group">
+                            <label for="celular">Placa</label>
+                            <input type="text" name="celular"  required 
+                              class="form-control">
+                          </div>
+
+                          <div class="col-sm-3 form-group">
+                            <label for="celular">Mátricula</label>
+                            <input type="text" name="celular"  required 
+                              class="form-control">
+                          </div>
+
+                          <div class="col-sm-3 form-group">
+                            <label for="celular">Sección</label>
+                            <input type="text" name="celular"  required 
+                              class="form-control">
+                          </div>
+
+                          <div class="col-sm-3 form-group">
+                            <label for="celular">Color del carro</label>
+                            <input type="text" name="celular"  required 
+                              class="form-control">
+                          </div>
+
+                          <div class="col-sm-3 form-group">
+                            <label for="celular">Año del carro</label>
+                            <input type="text" name="celular"  required 
+                              class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--segundo panel con la grilla-->
+  <div class="panel-group" id="idcerrarpanel" role="tablist" aria-multiselectable="false" style="width: 100%;margin-bottom: 3px;">
+    <div class="panel panel-default content" style=" margin: auto;">
+      <div class="panel-heading" role="tab" id="headingOne" style="height: 60px;">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#idcerrarpanel" href="#abrirordendeservicio" aria-expanded="false" aria-controls="abrirordendeservicio" style="margin-right: 20px;">
+            <span class="glyphicon glyphicon-chevron-down"></span>
+            Ordenes de servicio
+          </a>
+          <div style="display: inline-block;">
+            <h5>
+              De: <p-calendar [(ngModel)]="fechaini" [showIcon]="true" dateFormat="dd/mm/yy" [readonlyInput]="true" [locale]="es"></p-calendar> <!-- <span class="glyphicon glyphicon-calendar"></span>-->
+            </h5>
+          </div>
+          <div style="display: inline-block;margin-left: 33px;">
+            <h5>
+              Al: <p-calendar [(ngModel)]="fechafin" [showIcon]="true" dateFormat="dd/mm/yy" [readonlyInput]="true" [locale]="es"></p-calendar>  <!--<span class="glyphicon glyphicon-calendar"></span>-->
+            </h5>
+          </div>
+          <div style="display: inline-block;margin-left:37px;">
+            <h5>
+             <span role="button" class="glyphicon glyphicon-search" style="font-size: 19px !important;"></span>
+            </h5>
+          </div>
+          <div style="display: inline-block;margin-left: 40px;">
+            <h5>
+              Llave: <input type="text" style="width: 83px;"/>
+            </h5>
+          </div>
+          <div style="display: inline-block;margin-left: 15px;">
+            <h5>
+              Nro.O/S: <input type="text" style="width: 83px;"/>
+            </h5>
+          </div>
+        </h4>
+      </div>
+      <div id="abrirordendeservicio" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body" style="padding:0px;">
+          <!--<div class="table-container">
+	          <table style="width: 100%;">
+		          <tbody>
+                <tr>
+                  <th class="todas-td-th"> <div style="text-align:left;display:inline-block;float:left;"> <br> Nro O/S </div> <div style="text-align:right;display:inline-block;float:right;">llave <br> buffer</div></th>
+                  <th class="todas-td-th">Fecha <br>hora</th>
+                  <th class="todas-td-th">Cliente<br> Asesor</th>
+                  <th class="todas-td-th">Vehículo<br> Color- AÑO</th>
+                  <th class="todas-td-th">Placa<br>KM</th>
+                  <th class="todas-td-th">Requerimiento principal<br> garantia</th>
+                  <th class="todas-td-th">total</th>
+                  <th class="todas-td-th">SO</th>
+                  <th class="todas-td-th">CC</th>
+                  <th class="todas-td-th">CR</th>
+                  <th class="todas-td-th">SC</th>
+                  <th class="todas-td-th">SR</th>
+                </tr>
+                <tr>
+                  <td class="todas-td-th" style="text-align: left;">OS545441  <div style="float:right;">45</div></td>
+                  <td class="todas-td-th">23/04/2016 <br> 07:35 p.m</td>
+                  <td class="todas-td-th">Juan Pablo Jaramillo Lozana</td>
+                  <td class="todas-td-th" style="text-align:left;">Subaru ADM 41545</td>
+                  <td class="todas-td-th" style="text-align:left;">AOD411</td>
+                  <td  class="todas-td-th" style="text-align:left;">TIENE QUE HACER CAMBIO</td>
+                  <td class="todas-td-th" style="text-align:right;">314</td>
+                  <td class="todas-td-th" style="text-align:right;">T1</td>
+                  <td class="todas-td-th" style="text-align:right;">0</td>
+                  <td class="todas-td-th" style="text-align:right;">0</td>
+                  <td class="todas-td-th" style="text-align:right;">0</td>
+                  <td class="todas-td-th" style="text-align:right;">0</td>
+                </tr>
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td class="todas-td-th" style="text-align: left;font-size: 9px !important;width: 120px;">OS545451 <div style="float:right;">12</div></td>
+                  <td class="todas-td-th" style="font-size: 9px !important;width: 65px;">16/04/2017 <br> 08:20 p.m</td>
+                  <td class="todas-td-th" style="font-size: 9px !important;">Pedro Peñaloza Vasquez</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;width: 60px;">AKS442</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;width: 175px;">MANTENIMIENTO DE 5000KM</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 65px;">874.1</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">P</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td class="todas-td-th" style="text-align: left;font-size: 9px !important;width: 120px;">OS542315  <div style="float:right;">23</div></td>
+                  <td class="todas-td-th" style="font-size: 9px !important;width: 65px;">12/01/2017 <br> 09:35 a.m</td>
+                  <td class="todas-td-th" style="font-size: 9px !important;">Augusto Ferrando Picasso</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;width: 60px;">KSH412</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;width: 175px;">CAMBIO DE ACEITE</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 65px;">145.05</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">P</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td class="todas-td-th" style="text-align: left;font-size: 9px !important;width: 120px;">OS64251  <div style="float:right;">14</div></td>
+                  <td class="todas-td-th" style="font-size: 9px !important;width: 65px;">18/03/2017 <br> 02:35 p.m</td>
+                  <td class="todas-td-th" style="font-size: 9px !important;">Luis Perez Lopez</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;width: 60px;">YEH451</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;width: 175px;">PARABRISAS</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 65px;">4580</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">P</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td class="todas-td-th" style="text-align: left;font-size: 9px !important;width: 120px;">OS98726  <div style="float:right;">34</div></td>
+                  <td class="todas-td-th" style="font-size: 9px !important;width: 65px;">16/12/2016 <br> 04:50 p.m</td>
+                  <td class="todas-td-th" style="font-size: 9px !important;">Pedro Gerald Mantune Garcia</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;width: 60px;">PSD451</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;width: 175px;">LIMPIEZA COMPLETA</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 65px;">125</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">P</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td class="todas-td-th" style="text-align: left;font-size: 9px !important;width: 120px;">OS32145  <div style="float:right;">08</div></td>
+                  <td class="todas-td-th" style="font-size: 9px !important;width: 65px;">09/11/2016 <br> 09:12 a.m</td>
+                  <td class="todas-td-th" style="font-size: 9px !important;">Adriano Cesar Iguzquisa Chamorro</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;width: 60px;">LDH345</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;width: 175px;">Cambio de motor</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 65px;">364</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">P</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td class="todas-td-th" style="text-align: left;font-size: 9px !important;width: 120px;">OS32451  <div style="float:right;">41</div></td>
+                  <td class="todas-td-th" style="font-size: 9px !important;width: 65px;">16/04/2017 <br> 10:35 a.m</td>
+                  <td class="todas-td-th" style="font-size: 9px !important;">Antonio Julian García Pariona</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;width: 60px;">OEH642</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;width: 175px;">Reparación de choque</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 65px;">458</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">P</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td class="todas-td-th" style="text-align: left;font-size: 9px !important;width: 120px;">OS32157  <div style="float:right;">18</div></td>
+                  <td class="todas-td-th" style="font-size: 9px !important;width: 65px;">04/08/2016 <br> 12:35 p.m</td>
+                  <td class="todas-td-th" style="font-size: 9px !important;">Carina Soza Mantilla</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;width: 60px;">JDK453</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;width: 175px;">Problema de siniestro</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 65px;">321</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">P</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td class="todas-td-th" style="text-align: center;font-size: 9px !important;width: 120px;">OS96421  <div style="float:right;">22</div></td>
+                  <td class="todas-td-th" style="font-size: 9px !important;width: 65px;">16/04/2016 <br> 06:35 p.m</td>
+                  <td class="todas-td-th" style="font-size: 9px !important;">Miguel Sanchez Inga</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;width: 60px;">RWU871</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;width: 175px;">TIENE QUE HACER CAMBIO</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 65px;">245</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">P</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td class="todas-td-th" style="text-align: center;font-size: 9px !important;width: 120px;">OS31257  <div style="float:right;">25</div></td>
+                  <td class="todas-td-th" style="font-size: 9px !important;width: 65px;">31/07/2016 <br> 03:35 p.m</td>
+                  <td class="todas-td-th" style="font-size: 9px !important;">Juan Pablo Jaramillo Lozana</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;width: 60px;">LSJ641</td>
+                  <td class="todas-td-th" style="text-align:left;font-size: 9px !important;width: 175px;">TIENE QUE HACER CAMBIO</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 65px;">4125</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">P</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td class="todas-td-th" style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+
+              </tbody>
+	          </table>
+          </div>-->
+          <!--CABECERA DE LA TABLA-->
+          <div id="secondtable" style="width: 100%;display: block;position: relative;">
+            <table class="table table-bordered mytable table-responsive" style="width: 100%;table-layout: fixed;padding:0px;"
+              border="1" cellpadding="9" cellspacing="0" align="center">
+              <thead align="center" style="width: 100px;display: table-header-group;">
+                <tr class="tt" bgcolor="#EBEDF0">
+                  <th style="font-size: 10px !important;width: 120px;"><div style="text-align:left;display:inline-block;float:left;font-size: 10px !important;"> <br> Nro O/S </div> <div style="text-align:right;display:inline-block;float:right;font-size: 10px !important;">Llave <br> buffer</div></th>
+                  <th style="font-size: 10px !important;width: 65px;">Fecha <br>hora</th>
+                  <th style="font-size: 10px !important;">Cliente<br> Asesor</th>
+                  <th style="font-size: 10px !important;">Vehículo<br> Color- AÑO</th>
+                  <th style="font-size: 10px !important;    width: 60px;">Placa<br>KM</th>
+                  <th style="font-size: 10px !important;width: 175px;">Requerimiento principal<br> garantia</th>
+                  <th style="font-size: 10px !important;width: 65px;">Total</th>
+                  <th style="font-size: 10px !important;width: 25px;">SO</th>
+                  <th style="font-size: 10px !important;width: 25px;">CC</th>
+                  <th style="font-size: 10px !important;width: 25px;">CR</th>
+                  <th style="font-size: 10px !important;width: 25px;">SC</th>
+                  <th style="font-size: 10px !important;width: 25px;">SR</th>
+                  <th  style="font-size: 10px !important;width: 17px;"></th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+
+               <!--BODY DE LA TABLA-->
+     <div id="secondtable" style="width: 100%;position: relative;overflow-y: scroll;top: -21px;height: 150px;">
+            <table class="table table-bordered mytable table-hover" style="width: 100%;table-layout: fixed;display: table;" border="1"  cellpadding="9" cellspacing="0" align="center">
+              <tbody style="overflow-y: auto !important;">
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td style="text-align: left;font-size: 9px !important;width: 120px;">OS545441  <div style="float:right;font-size: 9px !important;">45</div></td>
+                  <td style="font-size: 9px !important;width: 65px;">23/04/2016 <br> 07:35 p.m</td>
+                  <td style="font-size: 9px !important;">Juan Pablo Jaramillo Lozana</td>
+                  <td style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 60px;">AOD411</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 175px;">TIENE QUE HACER CAMBIO</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 65px;">314</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">T1</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td style="text-align: left;font-size: 9px !important;width: 120px;">OS545451 <div style="float:right;font-size: 9px !important;">12</div></td>
+                  <td style="font-size: 9px !important;width: 65px;">16/04/2017 <br> 08:20 p.m</td>
+                  <td style="font-size: 9px !important;">Pedro Peñaloza Vasquez</td>
+                  <td style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 60px;">AKS442</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 175px;">MANTENIMIENTO DE 5000KM</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 65px;">874.1</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">P</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td style="text-align: left;font-size: 9px !important;width: 120px;">OS542315  <div style="float:right;font-size: 9px !important;">23</div></td>
+                  <td style="font-size: 9px !important;width: 65px;">12/01/2017 <br> 09:35 a.m</td>
+                  <td style="font-size: 9px !important;">Augusto Ferrando Picasso</td>
+                  <td style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 60px;">KSH412</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 175px;">CAMBIO DE ACEITE</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 65px;">145.05</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">P</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td style="text-align: left;font-size: 9px !important;width: 120px;">OS64251  <div style="float:right;font-size: 9px !important;">14</div></td>
+                  <td style="font-size: 9px !important;width: 65px;">18/03/2017 <br> 02:35 p.m</td>
+                  <td style="font-size: 9px !important;">Luis Perez Lopez</td>
+                  <td style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 60px;">YEH451</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 175px;">PARABRISAS</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 65px;">4580</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">P</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td style="text-align: left;font-size: 9px !important;width: 120px;">OS98726  <div style="float:right;font-size: 9px !important;">34</div></td>
+                  <td style="font-size: 9px !important;width: 65px;">16/12/2016 <br> 04:50 p.m</td>
+                  <td style="font-size: 9px !important;">Pedro Gerald Mantune Garcia</td>
+                  <td style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 60px;">PSD451</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 175px;">LIMPIEZA COMPLETA</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 65px;">125</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">P</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td style="text-align: left;font-size: 9px !important;width: 120px;">OS32145  <div style="float:right;font-size: 9px !important;">08</div></td>
+                  <td style="font-size: 9px !important;width: 65px;">09/11/2016 <br> 09:12 a.m</td>
+                  <td style="font-size: 9px !important;">Adriano Cesar Iguzquisa Chamorro</td>
+                  <td style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 60px;">LDH345</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 175px;">Cambio de motor</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 65px;">364</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">P</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td style="text-align: left;font-size: 9px !important;width: 120px;">OS32451  <div style="float:right;font-size: 9px !important;">41</div></td>
+                  <td style="font-size: 9px !important;width: 65px;">16/04/2017 <br> 10:35 a.m</td>
+                  <td style="font-size: 9px !important;">Antonio Julian García Pariona</td>
+                  <td style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 60px;">OEH642</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 175px;">Reparación de choque</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 65px;">458</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">P</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td style="text-align: left;font-size: 9px !important;width: 120px;">OS32157  <div style="float:right;font-size: 9px !important;">18</div></td>
+                  <td style="font-size: 9px !important;width: 65px;">04/08/2016 <br> 12:35 p.m</td>
+                  <td style="font-size: 9px !important;">Carina Soza Mantilla</td>
+                  <td style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 60px;">JDK453</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 175px;">Problema de siniestro</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 65px;">321</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">P</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td style="text-align: center;font-size: 9px !important;width: 120px;">OS96421  <div style="float:right;font-size: 9px !important;">22</div></td>
+                  <td style="font-size: 9px !important;width: 65px;">16/04/2016 <br> 06:35 p.m</td>
+                  <td style="font-size: 9px !important;">Miguel Sanchez Inga</td>
+                  <td style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 60px;">RWU871</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 175px;">TIENE QUE HACER CAMBIO</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 65px;">245</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">P</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+                <tr class="tt" style="cursor: pointer;font-size: 11px;">
+                  <td style="text-align: center;font-size: 9px !important;width: 120px;">OS31257  <div style="float:right;font-size: 9px !important;">25</div></td>
+                  <td style="font-size: 9px !important;width: 65px;">31/07/2016 <br> 03:35 p.m</td>
+                  <td style="font-size: 9px !important;">Juan Pablo Jaramillo Lozana</td>
+                  <td style="text-align:left;font-size: 9px !important;">Subaru ADM 41545</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 60px;">LSJ641</td>
+                  <td style="text-align:left;font-size: 9px !important;width: 175px;">TIENE QUE HACER CAMBIO</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 65px;">4125</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">P</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 9px !important;width: 25px;">0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<!--control de producción tareas de técnicos-->
+<div class="content" style="margin:auto;">
+    <!--Tercer navbar-->
+  <nav class="navbar navbar-default content nav-tecnicos" style="margin:auto;">
+    <div class="container-fluid nav-tecnicos">
+      <div class="navbar-header nav-tecnicos"  style="position:static;float:left;">
+        <a class="navbar-brand nav-tecnicos" style="padding: 2px 2px 2px 8px;">
+          <span>Control de Producción de Técnicos</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!--tabla de técnicos-->
+  <div class="table-responsive content" >
+    <div class="tabla-izquierda" style="display: inline-block;margin-bottom: 13px;">
+      <table class="table table-bordered" style="width:100%;">
+        <thead>
+          <tr>
+            <td class="cabecera-tabla-tecnico" colspan="3" style="color: #fff;background-color: rgba(1, 1, 1, 0.8);border-color: #adadad;">Vehículo con</td>
+          </tr>
+          <tr>
+            <td class="cabecera-tabla-tecnico" colspan="2" style="color: #fff;background-color: #c9302c;border-color: #ac2925;">Orden de Servicio</td>
+            <td class="cabecera-tabla-tecnico" style="background-color: #337ab7;border-color: #2e6da4;color: #fff;">Tareas</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align:center;">0</td>
+            <td style="text-align:center;color: #c9302c;font-weight: bold;">Por Asignar</td>
+            <td style="text-align:center;"></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">10</td>
+            <td style="text-align:center;"></td>
+            <td style="text-align:center;color:#337ab7;font-weight: bold;">Asignada</td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">0</td>
+            <td style="text-align:center;color: #c9302c;font-weight: bold;">X Lavado 1</td>
+            <td style="text-align:center;"></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">1</td>
+            <td style="text-align:center;"></td>
+            <td style="text-align:center;color:#337ab7;font-weight: bold;">Espera Producción</td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">6</td>
+            <td style="text-align:center;"></td>
+            <td style="text-align:center;color:#337ab7;font-weight: bold;">Producción</td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">3</td>
+            <td style="text-align:center;"></td>
+            <td style="text-align:center;color:#337ab7;font-weight: bold;">Detenido</td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">0</td>
+            <td style="text-align:center;color: #c9302c;font-weight: bold;">Por Validar</td>
+            <td style="text-align:center;"></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">0</td>
+            <td style="text-align:center;color: #c9302c;font-weight: bold;">C.Calidad</td>
+            <td style="text-align:center;"></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;">0</td>
+            <td style="text-align:center;color: #c9302c;font-weight: bold;">X Lavado 2</td>
+            <td style="text-align:center;"></td>
+          </tr>
+        </tbody>
+      </table>      
+    </div>
+    <div class="tabla-derecha" style="overflow-x: scroll;display: inline-block;margin-left: -4px;">
+      <table class="table table-bordered" style="width: 100%;margin-bottom: 16px;">
+        <thead>
+          <tr style="height: 46px;">
+            <th><a>Americo<br>Vera</a></th>
+            <th><a>Anthony<br>Olivera</a></th>
+            <th><a>David<br>Villano</a></th>
+            <th><a>Emerson<br>Cabañas</a></th>
+            <th><a>Emilio<br>Sanchez</a></th>
+            <th><a>Jesus<br>Supanta</a></th>
+            <th><a>Jesus<br>Vargas</a></th>
+            <th><a>Jorge<br>Armenjol</a></th>
+            <th><a>Jorge<br>Quispe</a></th>
+            <th><a>José<br>Rivera</a></th>
+            <th><a>Juan<br>Guevara</a></th>
+            <th><a>Lucio<br>Aslla</a></th>
+            <th><a>Lucio<br>Cruz</a></th>
+            <th><a>Martin<br>Elias</a></th>
+            <th><a>Nilver<br>Sanchez</a></th>
+            <th><a>Pablo<br>Valera</a></th>
+            <th><a>Raúl<br>Pinedo</a></th>
+            <th><a>Williams<br>Pisco</a></th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr style="height: 34px;">
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;">2</td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;">4</td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;">2</td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+            </tr>
+            <tr style="height: 34px;">
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;">1</td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;">3</td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;">2</td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;">2</td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;">2</td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;">2</td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;">2</td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;">2</td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;">1</td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+            </tr>
+            <tr style="height: 34px;">
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+            </tr>
+            <tr style="height: 34px;">
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+            </tr>
+            <tr style="height: 34px;">
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+              <td style="text-align:center;"></td>
+            </tr>
+        </tbody>
+      </table>      
+    </div>
+  </div>
+</div>
+
+<!--<div class="container">
+  <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>
+            Fixed Header Scrolling Table 
+          </h4>
+        </div>
+        <table class="table table-fixed">
+          <thead>
+            <tr>
+              <th class="col-xs-2">#</th><th class="col-xs-8">Name</th><th class="col-xs-2">Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-xs-2">1</td><td class="col-xs-8">Mike Adams</td><td class="col-xs-2">23</td>
+            </tr>
+            <tr>
+              <td class="col-xs-2">2</td><td class="col-xs-8">Holly Galivan</td><td class="col-xs-2">44</td>
+            </tr>
+            <tr>
+              <td class="col-xs-2">3</td><td class="col-xs-8">Mary Shea</td><td class="col-xs-2">86</td>
+            </tr>
+            <tr>
+              <td class="col-xs-2">4</td><td class="col-xs-8">Jim Adams</td><td>23</td>
+            </tr>
+            <tr>
+              <td class="col-xs-2">5</td><td class="col-xs-8">Henry Galivan</td><td class="col-xs-2">44</td>
+            </tr>
+            <tr>
+              <td class="col-xs-2">6</td><td class="col-xs-8">Bob Shea</td><td class="col-xs-2">26</td>
+            </tr>
+            <tr>
+              <td class="col-xs-2">7</td><td class="col-xs-8">Andy Parks</td><td class="col-xs-2">56</td>
+            </tr>
+            <tr>
+              <td class="col-xs-2">8</td><td class="col-xs-8">Bob Skelly</td><td class="col-xs-2">96</td>
+            </tr>
+            <tr>
+              <td class="col-xs-2">9</td><td class="col-xs-8">William Defoe</td><td class="col-xs-2">13</td>
+            </tr>
+            <tr>
+              <td class="col-xs-2">10</td><td class="col-xs-8">Will Tripp</td><td class="col-xs-2">16</td>
+            </tr>
+            <tr>
+              <td class="col-xs-2">11</td><td class="col-xs-8">Bill Champion</td><td class="col-xs-2">44</td>
+            </tr>
+            <tr>
+              <td class="col-xs-2">12</td><td class="col-xs-8">Lastly Jane</td><td class="col-xs-2">6</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>-->
+
+
+
+
+  <!--segundo panel de prueba con dos botones-->
+  
+  <!--<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-left: 20px;">
+      Datos del cliente
+    </a>
+    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#menu2" aria-expanded="false" aria-controls="collapseExample" style="float: right;margin-right: 20px;">
+      Datos del vehículo
+    </a>
+    <div class="collapse" id="collapseExample">
+      <div class="well" style="float: left;margin-left: 20px;width: 40%;">
+        hola mucho gusto como estas
+     </div>
+   </div>
+    <div class="collapse" id="menu2">
+     <div class="well" style="margin-left: 20px;margin-right: 20px;width: 40%;float: right;">
+       estas en el menu dos
+     </div>
+    </div>-->

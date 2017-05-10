@@ -1,0 +1,19 @@
+
+*{
+   font-size: 12px !important;
+ }
+
+
+  .ui-inputtext{
+    width: 77px !important;
+}
+
+.ui-datepicker.ui-widget{
+  font-size: 18px !important;
+}
+
+th{
+    padding: 3px !important;
+    text-align: center;
+    font-weight: normal;
+}

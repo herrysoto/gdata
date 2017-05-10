@@ -1,3 +1,5 @@
+import { PrincipalModule } from './../control-de-produccion/principal/principal.module';
+import { PrincipalComponent } from './../control-de-produccion/principal/principal.component';
 import { TallerComponent } from './../taller/taller.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -14,6 +16,7 @@ const routes: Routes = [
     //    { path: '', loadChildren: '../administracion/empresa/empresa.module#EmpresaModule'}]
   },
   { path: 'g-data.motriz/users-taller', component: TallerComponent},
+  {path:'g-data.motriz/users-control-de-produccion',loadChildren: '../control-de-produccion/principal/principal.module#PrincipalModule'}
 
 ];
 @NgModule({

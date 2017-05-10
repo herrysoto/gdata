@@ -1,3 +1,5 @@
+import { PrincipalComponent } from './control-de-produccion/principal/principal.component';
+import { PrincipalModule } from './control-de-produccion/principal/principal.module';
 import { LogModule } from './log/log.module';
 import { TallerComponent } from './taller/taller.component';
 import { ContextMenuModule,GrowlModule,SplitButtonModule,DropdownModule,DialogModule,TieredMenuModule,DataTableModule, SharedModule,
@@ -30,6 +32,7 @@ import { AppRoutingModule } from './app-routing.module';
     LogModule,
     HomeModule,
     EmpresaModule,
+    PrincipalModule,
     AppRoutingModule,
     ContextMenuModule,GrowlModule,SplitButtonModule,DropdownModule,DialogModule,TieredMenuModule,DataTableModule, SharedModule,
     ButtonModule,PasswordModule,InputTextModule,MessagesModule,InputMaskModule,ConfirmDialogModule

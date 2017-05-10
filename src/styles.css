@@ -4,6 +4,65 @@
 @import url('../node_modules/font-awesome/css/font-awesome.min.css');
 @import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
 
+body .content{
+      width: 1000px;
+      }
+      @media only screen and (max-width: 780px) {
+      body .content {
+      width: 768px;
+      }
+      }
+
+      .tabla-izquierda{
+        width:30%
+      }
+      @media only screen and (max-width: 780px){
+        .tabla-izquierda{
+          width:35%
+        }
+      }
+
+      .tabla-derecha{
+        width: 69%;
+      }
+      @media only screen and (max-width: 780px){
+        .tabla-derecha{
+          width: 64%;
+        }
+      }
+
+/*HACE CONFLICTO CON EL FLATRATE , PERTENECE AL CONTROL DE PRODUCCION
+.ui-inputtext{
+    width: 77px !important;
+}
+
+.ui-datepicker.ui-widget{
+  font-size: 18px !important;
+}*/
+.nav-tecnicos{
+    min-height: 0px;
+    height: 25px;
+}
+
+.cabecera-tabla-tecnico{
+    padding: 2px !important;
+    text-align: center;
+}
+
+
+
+.mytable{
+background-color:#ffffff;
+
+table-layout: fixed;
+}
+
+
+.navbar-header{
+  position: absolute;
+  right: 44%;
+}
+
 /*
  * Base structure
  */
@@ -555,3 +614,10 @@ p {
 
 
 #plus-button2{position:relative;text-align:center;top:50%;left:60%;margin-left:-100px;margin-top:-60px;cursor:pointer;color:blue;width: 203px;height:300px;padding-bottom:2px}
+
+
+
+
+
+
+

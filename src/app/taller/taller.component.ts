@@ -258,16 +258,17 @@ savehh(numhorashombre:number){
 }
 
 //funcion para que me traiga valor repetidos al momento de registrar
-    Getcodigovalidacion(vchcodigooperacion:string,chrcodigooperacionservicio:string,vchnrotrabajo:string,vchdescripcion:string,numhorashombre:number,numpreciosugerido:number,
+    Getcodigovalidacion(vchcodigooperacion:string,chrcodigooperacionservicio:string,numpreciooficial:number,vchdescripcion:string,numhorashombre:number,numpreciosugerido:number,
                         numdescuento:number,numtotal:number):any{
                             
         // this.pruebavali = this.newchrcodigooperacionservicio;
+        console.log(this.valorvch,chrcodigooperacionservicio);
         this._flatrateservice.Getcodigovalidacion(this.valorvch,chrcodigooperacionservicio)
         .subscribe(
             
             prue =>{ 
-                if(prue == null){ 
-              this.save(vchcodigooperacion,chrcodigooperacionservicio,vchnrotrabajo,vchdescripcion,numhorashombre,numpreciosugerido,numdescuento,numtotal);
+                if(prue == null || prue.length==0){ 
+              this.save(vchcodigooperacion,chrcodigooperacionservicio,numpreciooficial,vchdescripcion,numhorashombre,numpreciosugerido,numdescuento,numtotal);
 
                 }else{
                     this.confirmationService.confirm({
@@ -287,7 +288,7 @@ savehh(numhorashombre:number){
     }
 
 // Post a la nueva operacion servicio
-    save(vchcodigooperacion:string,chrcodigooperacionservicio:string,vchnrotrabajo:string,vchdescripcion:string,numhorashombre:number,numpreciosugerido:number,
+    save(vchcodigooperacion:string,chrcodigooperacionservicio:string,numpreciooficial:number,vchdescripcion:string,numhorashombre:number,numpreciosugerido:number,
                         numdescuento:number,numtotal:number):any {     
             this.confirmationService.confirm({
             message: '¿Estás seguro que deseas registrar este item con el código '+ vchcodigooperacion +'-'+chrcodigooperacionservicio +' ?',
@@ -295,12 +296,15 @@ savehh(numhorashombre:number){
              numhorashombre = this.nwhh;
              numdescuento = this.newdesc;
              vchdescripcion = this.newdescripcion;
-             vchnrotrabajo = this.newnumtrabajo;        
+            console.log(this.horahombre);
+            numpreciooficial = this.horahombre;  
+            // console.log(numpreciooficial);      
              numhorashombre = +numhorashombre;
              numpreciosugerido = +numpreciosugerido;
              numdescuento = +numdescuento;
              numtotal = +numtotal;
-             this._flatrateservice.postinsertardatos(vchcodigooperacion,chrcodigooperacionservicio,vchnrotrabajo,vchdescripcion,numhorashombre,numpreciosugerido,numdescuento,this.beanNumCodigo[0].numcodigo,numtotal).subscribe(
+             numpreciooficial = +numpreciooficial;
+             this._flatrateservice.postinsertardatos(vchcodigooperacion,chrcodigooperacionservicio,numpreciooficial,vchdescripcion,numhorashombre,numpreciosugerido,numdescuento,this.beanNumCodigo[0].numcodigo,numtotal).subscribe(
                     cuad =>{this.getCuadros3(this.valorvch);}
              );
              // this.beanoperacionservicios.push(this.beanopser);
@@ -364,7 +368,7 @@ savehh(numhorashombre:number){
          }
     
     //Esta función es para la validacion sobre el negativo que hay en el descuento en el caso de registrar un item
-        Validarnegativosregistrar(vchcodigooperacion:string,chrcodigooperacionservicio:string,vchnrotrabajo:string,vchdescripcion:string,numhorashombre:number,numpreciosugerido:number,
+        Validarnegativosregistrar(vchcodigooperacion:string,chrcodigooperacionservicio:string,numpreciooficial:number,vchdescripcion:string,numhorashombre:number,numpreciosugerido:number,
                         numdescuento:number,numtotal:number):any{      
                             chrcodigooperacionservicio = this.newchrcodigooperacionservicio.toUpperCase();
                         if(numtotal < 0 || numpreciosugerido < 0){
@@ -379,7 +383,7 @@ savehh(numhorashombre:number){
                 }
                 })  
               }else{
-                  this.Getcodigovalidacion(vchcodigooperacion,chrcodigooperacionservicio,vchnrotrabajo,vchdescripcion,numhorashombre,numpreciosugerido,numdescuento,numtotal);
+                  this.Getcodigovalidacion(vchcodigooperacion,chrcodigooperacionservicio,numpreciooficial,vchdescripcion,numhorashombre,numpreciosugerido,numdescuento,numtotal);
               }    
         }
 
