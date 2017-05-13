@@ -4,6 +4,8 @@
 @import url('../node_modules/font-awesome/css/font-awesome.min.css');
 @import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
 
+/*AQUI COMIENZA EL CONTROL DE PRODUCCION CP*/
+/*cp*/
 body .content{
       width: 1000px;
       }
@@ -39,32 +41,41 @@ body .content{
 .ui-datepicker.ui-widget{
   font-size: 18px !important;
 }*/
+/*cp*/
 .nav-tecnicos{
     min-height: 0px;
     height: 25px;
 }
 
+/*cp*/
 .cabecera-tabla-tecnico{
     padding: 2px !important;
     text-align: center;
 }
 
+/*cp*/
+.titulo-panel{
+  text-align: left;
+}
 
 
+/*cp*/
 .mytable{
 background-color:#ffffff;
 
 table-layout: fixed;
 }
 
-
+/*cp*/
 .navbar-header{
   position: absolute;
   right: 44%;
 }
 
+/*AQUI TERMINA EL CONTROL DE PRODUCCION CP*/
+
 /*
- * Base structure
+ * Base structure administracion
  */
 
 /* Move down content because we have a fixed navbar that is 50px tall */
