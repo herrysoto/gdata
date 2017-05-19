@@ -5,7 +5,7 @@
       <div class="navbar-header">
         <a class="navbar-brand" style="font-weight: bold;font-size: 12px;">CONTROL DE PRODUCCIÓN</a>
       </div>
-      <a class="navbar-brand" style="position: relative;float:right;color: white;" href="/g-data.motriz/prueba">Cerrar Módulo</a>
+      <a class="navbar-brand" role="button" style="position: relative;float:right;color: white;"  (click)="cerrarModulo()">Cerrar Módulo</a> <!--href="/g-data.motriz/prueba"-->
     </div>
   </nav>
 
@@ -27,22 +27,21 @@
       </div>
       <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
         <div class="panel-body" style="padding:10px;">
-          <a class="btn btn-primary" role="button" style="margin-right: 63%;" data-toggle="collapse" href="#primerboton" aria-expanded="false" aria-controls="primerboton">
-            Datos del cliente y vehículo
-          </a>
+          
           <!--<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#menu2" aria-expanded="false" aria-controls="collapseExample" style="float: right;margin-right: 20px;">
                     Button with data-target
                 </button>-->
+
           <a class="btn btn-primary" role="button" data-toggle="collapse" href="#segundoboton" aria-expanded="false" aria-controls="segundoboton"
-            style="float: right; margin-left: 15px;">
+            style="float: left;margin-bottom: 6px;">
               Historial del vehículo
           </a>
           <a class="btn btn-primary" role="button" data-toggle="collapse" href="#tercerboton" aria-expanded="false" aria-controls="tercerboton"
-            style="float: right;">
-              Buscar
+            style="float: left;margin-left: 10px;">
+              Buscar Cliente
           </a>
-          <div class="collapse" id="primerboton">
-            <div class="well" style="float: left;width: 80%;">
+
+            <div class="well" style="float: left;width: 100%;">
               <div class="row">
 
                 <div class="col-lg-12">
@@ -51,50 +50,53 @@
                     <form>
                       <div class="col-sm-12">
                         <div class="row">
-                          <div class="col-sm-3 form-group">
-                            <label for="ruc">Nombre del cliente:</label>
-                            <input type="text" name="ruc"  required   class="form-control">
+                          <div class="col-sm-3 form-group" >
+                            <label for="nombre">Nombre del cliente</label>
+                            <input  *ngIf='beancliente && !beanclientevehiculo' type="text" name="nombre" [(value)]="beancliente[0].nombreCompleto"    class="form-control" [disabled]="true">
+                            <input  *ngIf='beanclientevehiculo' type="text" name="nombre" [(value)]="beanclientevehiculo[0].nombre"    class="form-control" [disabled]="true">
+                            <input   *ngIf='!beancliente && !beanclientevehiculo' type="text" name="nombre"     class="form-control" [disabled]="true">
                           </div>
                           <div class="col-sm-3 form-group">
-                            <label for="nombre">DNI</label>
-                            <input type="text" name="nombre" required class="form-control"
-                              #nombre>
-                          </div>
-
-                          <div class="col-sm-3 form-group">
-                            <label for="direccion">Datos del carro</label>
-                            <input type="text" name="direccion"  required 
-                              class="form-control">
+                            <label for="doc">Doc Cliente</label>
+                            <input  *ngIf='beancliente && !beanclientevehiculo' type="text" name="doc" [(value)]="beancliente[0].documento" [disabled]="true" class="form-control">
+                            <input  *ngIf='beanclientevehiculo' type="text" name="doc" [(value)]="beanclientevehiculo[0].documento" [disabled]="true" class="form-control">
+                            <input  *ngIf='!beancliente && !beanclientevehiculo' type="text" name="doc" [disabled]="true" class="form-control">
                           </div>
 
                           <div class="col-sm-3 form-group">
-                            <label for="celular">Placa</label>
-                            <input type="text" name="celular"  required 
-                              class="form-control">
+                            <label for="vehiculo">Modelo</label>
+                            <input *ngIf='beanclientevehiculo' type="text" name="vehiculo" [(value)]="beanclientevehiculo[0].vehiculo"  [disabled]="true" class="form-control">
+                            <input *ngIf='!beanclientevehiculo' type="text" name="vehiculo"  [disabled]="true" class="form-control">
                           </div>
 
                           <div class="col-sm-3 form-group">
-                            <label for="celular">Mátricula</label>
-                            <input type="text" name="celular"  required 
-                              class="form-control">
+                            <label for="placa">Placa</label>
+                            <input *ngIf='beanclientevehiculo' type="text" name="placa" [(value)]="beanclientevehiculo[0].placa"  [disabled]="true" class="form-control">
+                            <input *ngIf='!beanclientevehiculo' type="text" name="placa"  [disabled]="true" class="form-control">
                           </div>
 
                           <div class="col-sm-3 form-group">
-                            <label for="celular">Sección</label>
-                            <input type="text" name="celular"  required 
-                              class="form-control">
+                            <label for="vin">Chasis</label>
+                            <input *ngIf='beanclientevehiculo' type="text" name="vin" [(value)]="beanclientevehiculo[0].vin" [disabled]="true" class="form-control">
+                            <input *ngIf='!beanclientevehiculo' type="text" name="vin"  [disabled]="true" class="form-control">
                           </div>
 
                           <div class="col-sm-3 form-group">
-                            <label for="celular">Color del carro</label>
-                            <input type="text" name="celular"  required 
-                              class="form-control">
+                            <label for="motor">Motor</label>
+                            <input *ngIf='beanclientevehiculo'  type="text" name="motor"  [(value)]="beanclientevehiculo[0].motor" [disabled]="true" class="form-control">
+                            <input *ngIf='!beanclientevehiculo' type="text" name="motor"  [disabled]="true" class="form-control">
                           </div>
 
                           <div class="col-sm-3 form-group">
-                            <label for="celular">Año del carro</label>
-                            <input type="text" name="celular"  required 
-                              class="form-control">
+                            <label for="color">Color del carro</label>
+                            <input *ngIf='beanclientevehiculo'  type="text" name="color" [(value)]="beanclientevehiculo[0].color" [disabled]="true" class="form-control">
+                            <input *ngIf='!beanclientevehiculo' type="text" name="color"  [disabled]="true" class="form-control">
+                          </div>
+
+                          <div class="col-sm-3 form-group">
+                            <label for="anio">Año del carro</label>
+                            <input *ngIf='beanclientevehiculo'   type="text" name="anio" [(value)]="beanclientevehiculo[0].anio" [disabled]="true" class="form-control">
+                            <input  *ngIf='!beanclientevehiculo' type="text" name="anio"  [disabled]="true" class="form-control">
                           </div>
                         </div>
                       </div>
@@ -103,7 +105,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -130,17 +132,17 @@
           </div>
           <div style="display: inline-block;margin-left:37px;">
             <h5>
-             <span role="button" class="glyphicon glyphicon-search" style="font-size: 19px !important;"></span>
+             <span role="button" class="glyphicon glyphicon-search in" style="font-size: 19px !important;" (click)="Mandarfecha()" ></span>
             </h5>
           </div>
           <div style="display: inline-block;margin-left: 40px;">
             <h5>
-              Llave: <input type="text" style="width: 83px;"/>
+              Llave: <input type="text" style="width: 83px;" #nroLlave (keyup.enter)="ObtenerGrillaPorLlave(nroLlave.value)"/>
             </h5>
           </div>
           <div style="display: inline-block;margin-left: 15px;">
             <h5>
-              Nro.O/S: <input type="text" style="width: 83px;"/>
+              Nro.O/S: <input type="text" style="width: 83px;" #codigoOS (keyup.enter)="ObtenerGrillaPorOS(codigoOS.value)" />
             </h5>
           </div>
         </h4>
@@ -314,19 +316,19 @@
               border="1" cellpadding="9" cellspacing="0" align="center">
               <thead align="center" style="width: 100px;display: table-header-group;">
                 <tr class="tt" bgcolor="#EBEDF0">
-                  <th style="font-size: 12px !important;width: 120px;"><div style="text-align:left;display:inline-block;float:left;font-size: 12px !important;"> <br> Nro O/S </div> <div style="text-align:right;display:inline-block;float:right;font-size: 12px !important;">Llave <br> buffer</div></th>
-                  <th style="font-size: 12px !important;width: 65px;">Fecha <br>hora</th>
-                  <th style="font-size: 12px !important;">Cliente<br> Asesor</th>
-                  <th style="font-size: 12px !important;">Vehículo<br> Color- AÑO</th>
-                  <th style="font-size: 12px !important;    width: 60px;">Placa<br>KM</th>
-                  <th style="font-size: 12px !important;width: 175px;">Requerimiento principal<br> garantia</th>
-                  <th style="font-size: 12px !important;width: 65px;">Total</th>
-                  <th style="font-size: 12px !important;width: 25px;">SO</th>
-                  <th style="font-size: 12px !important;width: 25px;">CC</th>
-                  <th style="font-size: 12px !important;width: 25px;">CR</th>
-                  <th style="font-size: 12px !important;width: 25px;">SC</th>
-                  <th style="font-size: 12px !important;width: 25px;">SR</th>
-                  <th  style="font-size: 12px !important;width: 17px;"></th>
+                  <th style="width: 120px;"><div style="text-align:left;display:inline-block;float:left;font-size: 11px !important;"> <br> Nro O/S </div> <div style="text-align:right;display:inline-block;float:right;font-size: 11px !important;">Llave <br> buffer</div></th>
+                  <th style="font-size: 11px !important;width: 65px;">Fecha <br>hora</th>
+                  <th style="font-size: 11px !important;">Cliente<br> Asesor</th>
+                  <th style="font-size: 11px !important;">Vehículo<br> Color- AÑO</th>
+                  <th style="font-size: 11px !important;    width: 60px;">Placa<br>KM</th>
+                  <th style="font-size: 11px !important;width: 175px;">Requerimiento principal<br> garantia</th>
+                  <th style="font-size: 11px !important;width: 65px;">Total</th>
+                  <th style="font-size: 11px !important;width: 25px;">SO</th>
+                  <th style="font-size: 11px !important;width: 25px;">CC</th>
+                  <th style="font-size: 11px !important;width: 25px;">CR</th>
+                  <th style="font-size: 11px !important;width: 25px;">SC</th>
+                  <th style="font-size: 11px !important;width: 25px;">SR</th>
+                  <th  style="font-size: 11px !important;width: 17px;"></th>
                 </tr>
               </thead>
             </table>
@@ -334,148 +336,25 @@
 
                <!--BODY DE LA TABLA-->
      <div id="secondtable" style="width: 100%;position: relative;overflow-y: scroll;top: -21px;height: 150px;">
-            <table class="table table-bordered mytable table-hover" style="width: 100%;table-layout: fixed;display: table;" border="1"  cellpadding="9" cellspacing="0" align="center">
+            <table class="table table-bordered mytable table-hover" *ngIf='beancontroldeproduccion && beancontroldeproduccion.length' style="width: 100%;table-layout: fixed;display: table;" border="1"  cellpadding="9" cellspacing="0" align="center">
               <tbody style="overflow-y: auto !important;">
-                <tr class="tt" style="cursor: pointer;font-size: 11px;">
-                  <td style="text-align: left;font-size: 12px !important;width: 120px;">OS545441  <div style="float:right;font-size: 12px !important;">45</div></td>
-                  <td style="font-size: 12px !important;width: 65px;">23/04/2016 <br> 07:35 p.m</td>
-                  <td style="font-size: 12px !important;">Juan Pablo Jaramillo Lozana</td>
-                  <td style="text-align:left;font-size: 12px !important;">Subaru ADM 41545</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 60px;">AOD411</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 175px;">TIENE QUE HACER CAMBIO</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 65px;">314</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">T1</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
+                <tr class="tt" style="font-size: 11px;" *ngFor="let controldeproduccion of beancontroldeproduccion; let i = index" >
+                  <td style="text-align: left;font-size: 10px !important;width: 120px;"><b style="font-size: 11px !important;font-weight: bold;">{{controldeproduccion.codigo}} </b> <div style="float:right;font-size: 9px !important;">{{controldeproduccion.llave}}</div></td>
+                  <td style="font-size: 10px !important;width: 65px;">{{controldeproduccion.fechacreacion}}<br>{{controldeproduccion.horacreacion}}</td>
+                  <td style="font-size: 10px !important;"><u><b style="cursor: pointer;font-size: 11px !important;font-weight: bold;" (click)="ObtenerCliente(controldeproduccion.doccliente)">{{controldeproduccion.nombre}}</b></u><br>{{controldeproduccion.asesor}}</td>
+                  <td style="text-align:left;font-size: 10px !important;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;" title="{{controldeproduccion.carro}}"><b style="font-size: 11px !important;font-weight: bold;">
+                    {{controldeproduccion.carro}}</b><br>{{controldeproduccion.colores}}-{{controldeproduccion.anio}}</td>
+                  <td style="text-align:left;font-size: 10px !important;width: 60px;"><u><b style="cursor: pointer;font-size: 11px !important;font-weight: bold;" (click)="ObtenerClienteVehiculo(controldeproduccion.placa,controldeproduccion.vin)">
+                    {{controldeproduccion.placa}}</b></u><br>{{controldeproduccion.kilometraje}}</td>
+                  <td style="text-align:left;font-size: 10px !important;width: 175px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;font-weight: bold;" title="{{controldeproduccion.observacion}}"><b style="font-size: 11px !important;">{{controldeproduccion.observacion}}</b></td>
+                  <td style="text-align:right;font-size: 10px !important;width: 65px;"><b style="font-size: 11px !important;font-weight: bold;">{{controldeproduccion.total}}</b></td>
+                  <td style="text-align:right;font-size: 10px !important;width: 25px;">{{controldeproduccion.estope}}</td>
+                  <td style="text-align:right;font-size: 10px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 10px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 10px !important;width: 25px;">0</td>
+                  <td style="text-align:right;font-size: 10px !important;width: 25px;">0</td>
                 </tr>
-                <tr class="tt" style="cursor: pointer;font-size: 11px;">
-                  <td style="text-align: left;font-size: 12px !important;width: 120px;">OS545451 <div style="float:right;font-size: 12px !important;">12</div></td>
-                  <td style="font-size: 12px !important;width: 65px;">16/04/2017 <br> 08:20 p.m</td>
-                  <td style="font-size: 12px !important;">Pedro Peñaloza Vasquez</td>
-                  <td style="text-align:left;font-size: 12px !important;">Subaru ADM 41545</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 60px;">AKS442</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 175px;">MANTENIMIENTO DE 5000KM</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 65px;">874.1</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">P</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                </tr>
-                <tr class="tt" style="cursor: pointer;font-size: 11px;">
-                  <td style="text-align: left;font-size: 12px !important;width: 120px;">OS542315  <div style="float:right;font-size: 12px !important;">23</div></td>
-                  <td style="font-size: 12px !important;width: 65px;">12/01/2017 <br> 09:35 a.m</td>
-                  <td style="font-size: 12px !important;">Augusto Ferrando Picasso</td>
-                  <td style="text-align:left;font-size: 12px !important;">Subaru ADM 41545</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 60px;">KSH412</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 175px;">CAMBIO DE ACEITE</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 65px;">145.05</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">P</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                </tr>
-                <tr class="tt" style="cursor: pointer;font-size: 11px;">
-                  <td style="text-align: left;font-size: 12px !important;width: 120px;">OS64251  <div style="float:right;font-size: 12px !important;">14</div></td>
-                  <td style="font-size: 12px !important;width: 65px;">18/03/2017 <br> 02:35 p.m</td>
-                  <td style="font-size: 12px !important;">Luis Perez Lopez</td>
-                  <td style="text-align:left;font-size: 12px !important;">Subaru ADM 41545</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 60px;">YEH451</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 175px;">PARABRISAS</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 65px;">4580</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">P</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                </tr>
-                <tr class="tt" style="cursor: pointer;font-size: 11px;">
-                  <td style="text-align: left;font-size: 12px !important;width: 120px;">OS98726  <div style="float:right;font-size: 12px !important;">34</div></td>
-                  <td style="font-size: 12px !important;width: 65px;">16/12/2016 <br> 04:50 p.m</td>
-                  <td style="font-size: 12px !important;">Pedro Gerald Mantune Garcia</td>
-                  <td style="text-align:left;font-size: 12px !important;">Subaru ADM 41545</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 60px;">PSD451</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 175px;">LIMPIEZA COMPLETA</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 65px;">125</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">P</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                </tr>
-                <tr class="tt" style="cursor: pointer;font-size: 11px;">
-                  <td style="text-align: left;font-size: 12px !important;width: 120px;">OS32145  <div style="float:right;font-size: 12px !important;">08</div></td>
-                  <td style="font-size: 12px !important;width: 65px;">09/11/2016 <br> 09:12 a.m</td>
-                  <td style="font-size: 12px !important;">Adriano Cesar Iguzquisa Chamorro</td>
-                  <td style="text-align:left;font-size: 12px !important;">Subaru ADM 41545</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 60px;">LDH345</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 175px;">Cambio de motor</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 65px;">364</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">P</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                </tr>
-                <tr class="tt" style="cursor: pointer;font-size: 11px;">
-                  <td style="text-align: left;font-size: 12px !important;width: 120px;">OS32451  <div style="float:right;font-size: 12px !important;">41</div></td>
-                  <td style="font-size: 12px !important;width: 65px;">16/04/2017 <br> 10:35 a.m</td>
-                  <td style="font-size: 12px !important;">Antonio Julian García Pariona</td>
-                  <td style="text-align:left;font-size: 12px !important;">Subaru ADM 41545</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 60px;">OEH642</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 175px;">Reparación de choque</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 65px;">458</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">P</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                </tr>
-                <tr class="tt" style="cursor: pointer;font-size: 11px;">
-                  <td style="text-align: left;font-size: 12px !important;width: 120px;">OS32157  <div style="float:right;font-size: 12px !important;">18</div></td>
-                  <td style="font-size: 12px !important;width: 65px;">04/08/2016 <br> 12:35 p.m</td>
-                  <td style="font-size: 12px !important;">Carina Soza Mantilla</td>
-                  <td style="text-align:left;font-size: 12px !important;">Subaru ADM 41545</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 60px;">JDK453</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 175px;">Problema de siniestro</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 65px;">321</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">P</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                </tr>
-                <tr class="tt" style="cursor: pointer;font-size: 11px;">
-                  <td style="text-align: center;font-size: 12px !important;width: 120px;">OS96421  <div style="float:right;font-size: 12px !important;">22</div></td>
-                  <td style="font-size: 12px !important;width: 65px;">16/04/2016 <br> 06:35 p.m</td>
-                  <td style="font-size: 12px !important;">Miguel Sanchez Inga</td>
-                  <td style="text-align:left;font-size: 12px !important;">Subaru ADM 41545</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 60px;">RWU871</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 175px;">TIENE QUE HACER CAMBIO</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 65px;">245</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">P</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                </tr>
-                <tr class="tt" style="cursor: pointer;font-size: 11px;">
-                  <td style="text-align: center;font-size: 12px !important;width: 120px;">OS31257  <div style="float:right;font-size: 12px !important;">25</div></td>
-                  <td style="font-size: 12px !important;width: 65px;">31/07/2016 <br> 03:35 p.m</td>
-                  <td style="font-size: 12px !important;">Juan Pablo Jaramillo Lozana</td>
-                  <td style="text-align:left;font-size: 12px !important;">Subaru ADM 41545</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 60px;">LSJ641</td>
-                  <td style="text-align:left;font-size: 12px !important;width: 175px;">TIENE QUE HACER CAMBIO</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 65px;">4125</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">P</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                  <td style="text-align:right;font-size: 12px !important;width: 25px;">0</td>
-                </tr>
+                
               </tbody>
             </table>
           </div>
@@ -514,82 +393,75 @@
         <tbody>
           <tr>
             <td style="text-align:center;">0</td>
-            <td style="text-align:center;color: #c9302c;font-weight: bold;">Por Asignar</td>
+            <td style="text-align:center;color: #c9302c;font-weight: bold;" role="button" (click)="categoriaservicio('ESTADO_P1')">Por Asignar</td>
             <td style="text-align:center;"></td>
           </tr>
           <tr>
             <td style="text-align:center;">10</td>
             <td style="text-align:center;"></td>
-            <td style="text-align:center;color:#337ab7;font-weight: bold;">Asignada</td>
+            <td style="text-align:center;color:#337ab7;font-weight: bold;" role="button" (click)="categoriaservicio('ESTADO_AA')">Asignada</td>
           </tr>
           <tr>
             <td style="text-align:center;">0</td>
-            <td style="text-align:center;color: #c9302c;font-weight: bold;">X Lavado 1</td>
+            <td style="text-align:center;color: #c9302c;font-weight: bold;" role="button" (click)="categoriaservicio('ESTADO_L1')">X Lavado 1</td>
             <td style="text-align:center;"></td>
           </tr>
           <tr>
             <td style="text-align:center;">1</td>
             <td style="text-align:center;"></td>
-            <td style="text-align:center;color:#337ab7;font-weight: bold;">Espera Producción</td>
+            <td style="text-align:center;color:#337ab7;font-weight: bold;" role="button" (click)="categoriaservicio('ESTADO_EP')">Espera Producción</td>
           </tr>
           <tr>
             <td style="text-align:center;">6</td>
             <td style="text-align:center;"></td>
-            <td style="text-align:center;color:#337ab7;font-weight: bold;">Producción</td>
+            <td style="text-align:center;color:#337ab7;font-weight: bold;" role="button" (click)="categoriaservicio('ESTADO_PP')">Producción</td>
           </tr>
           <tr>
             <td style="text-align:center;">3</td>
             <td style="text-align:center;"></td>
-            <td style="text-align:center;color:#337ab7;font-weight: bold;">Detenido</td>
+            <td style="text-align:center;color:#337ab7;font-weight: bold;" role="button" (click)="categoriaservicio('ESTADO_D')">Detenido</td>
           </tr>
           <tr>
             <td style="text-align:center;">0</td>
-            <td style="text-align:center;color: #c9302c;font-weight: bold;">Por Validar</td>
+            <td style="text-align:center;color: #c9302c;font-weight: bold;" role="button" (click)="categoriaservicio('ESTADO_VV')">Por Validar</td>
             <td style="text-align:center;"></td>
           </tr>
           <tr>
             <td style="text-align:center;">0</td>
-            <td style="text-align:center;color: #c9302c;font-weight: bold;">C.Calidad</td>
+            <td style="text-align:center;color: #c9302c;font-weight: bold;" role="button" (click)="categoriaservicio('ESTADO_C')">C.Calidad</td>
             <td style="text-align:center;"></td>
           </tr>
           <tr>
             <td style="text-align:center;">0</td>
-            <td style="text-align:center;color: #c9302c;font-weight: bold;">X Lavado 2</td>
+            <td style="text-align:center;color: #c9302c;font-weight: bold;" role="button" (click)="categoriaservicio('ESTADO_L')">X Lavado 2</td>
             <td style="text-align:center;"></td>
           </tr>
         </tbody>
       </table>      
     </div>
     <div class="tabla-derecha" style="overflow-x: scroll;display: inline-block;margin-left: -4px;">
-      <table class="table table-bordered" style="width: 100%;margin-bottom: 16px;">
+      <table class="table table-bordered" style="width: 100%;margin-bottom: 16px;" >
         <thead>
-          <tr style="height: 46px;">
-            <th><a>Americo<br>Vera</a></th>
-            <th><a>Anthony<br>Olivera</a></th>
-            <th><a>David<br>Villano</a></th>
-            <th><a>Emerson<br>Cabañas</a></th>
-            <th><a>Emilio<br>Sanchez</a></th>
-            <th><a>Jesus<br>Supanta</a></th>
-            <th><a>Jesus<br>Vargas</a></th>
-            <th><a>Jorge<br>Armenjol</a></th>
-            <th><a>Jorge<br>Quispe</a></th>
-            <th><a>José<br>Rivera</a></th>
-            <th><a>Juan<br>Guevara</a></th>
-            <th><a>Lucio<br>Aslla</a></th>
-            <th><a>Lucio<br>Cruz</a></th>
-            <th><a>Martin<br>Elias</a></th>
-            <th><a>Nilver<br>Sanchez</a></th>
-            <th><a>Pablo<br>Valera</a></th>
-            <th><a>Raúl<br>Pinedo</a></th>
-            <th><a>Williams<br>Pisco</a></th>
+          <tr style="height: 46px;" >
+            <!--<th (click)="ObtenerGrillaPorTecnico('125')"><a>{{tecnico.nombre}}</a></th>-->
+            <th *ngFor="let tecnico of beantecnico; let i = index"  (click)="ObtenerGrillaPorTecnico(tecnico.codigo)"><a>{{tecnico.nombre}}</a></th>
+            <!--<th (click)="ObtenerGrillaPorTecnico('126')"><a>David<br>Villano</a></th>
+            <th (click)="ObtenerGrillaPorTecnico('18')"><a>Emilio<br>Sanchez</a></th>
+            <th (click)="ObtenerGrillaPorTecnico('13')"><a>Jesus<br>Supanta</a></th>
+            <th (click)="ObtenerGrillaPorTecnico('165')"><a>Jorge<br>Armenjol</a></th>
+            <th (click)="ObtenerGrillaPorTecnico('117')"><a>José<br>Rivera</a></th>
+            <th (click)="ObtenerGrillaPorTecnico('113')"><a>Juan<br>Oropeza</a></th>
+            <th (click)="ObtenerGrillaPorTecnico('14')"><a>Lucio<br>Aslla</a></th>
+            <th (click)="ObtenerGrillaPorTecnico('15')"><a>Lucio<br>Cruz</a></th>
+            <th (click)="ObtenerGrillaPorTecnico('184')"><a>Luis<br>Vasquez</a></th>
+            <th (click)="ObtenerGrillaPorTecnico('205')"><a>Nilver<br>Sanchez</a></th>
+            <th (click)="ObtenerGrillaPorTecnico('207')"><a>Pablo<br>Valera</a></th>
+            <th (click)="ObtenerGrillaPorTecnico('5')"><a>Raúl<br>Pinedo</a></th>
+            <th (click)="ObtenerGrillaPorTecnico('201')"><a>Williams<br>Pisco</a></th>-->
           </tr>
         </thead>
         <tbody>
             <tr style="height: 26px;">
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
@@ -620,10 +492,6 @@
               <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;">2</td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
             </tr>
             <tr style="height: 26px;">
               <td style="text-align:center;"></td>
@@ -640,10 +508,7 @@
               <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
+
             </tr>
             <tr>
               <td style="text-align:center;"></td>
@@ -660,10 +525,7 @@
               <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;">2</td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
+
             </tr>
             <tr>
               <td style="text-align:center;"></td>
@@ -680,10 +542,7 @@
               <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
-              <td style="text-align:center;">2</td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
+
             </tr>
             <tr>
               <td style="text-align:center;">2</td>
@@ -700,10 +559,7 @@
               <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;">1</td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
+
             </tr>
             <tr style="height: 26px;">
               <td style="text-align:center;"></td>
@@ -720,10 +576,7 @@
               <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
+
             </tr>
             <tr style="height: 26px;">
               <td style="text-align:center;"></td>
@@ -740,10 +593,7 @@
               <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
+
             </tr>
             <tr style="height: 26px;">
               <td style="text-align:center;"></td>
@@ -760,10 +610,7 @@
               <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
               <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
-              <td style="text-align:center;"></td>
+
             </tr>
         </tbody>
       </table>      

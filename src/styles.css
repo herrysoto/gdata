@@ -25,12 +25,16 @@ body .content{
       }
 
       .tabla-derecha{
-        width: 69%;
+        width: 70%;
       }
       @media only screen and (max-width: 780px){
         .tabla-derecha{
           width: 64%;
         }
+      }
+
+      *{
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
       }
 
 /*HACE CONFLICTO CON EL FLATRATE , PERTENECE AL CONTROL DE PRODUCCION
@@ -45,6 +49,10 @@ body .content{
 .nav-tecnicos{
     min-height: 0px;
     height: 25px;
+}
+
+.input-disable{
+  background-color: #fbfbfb;
 }
 
 /*cp*/

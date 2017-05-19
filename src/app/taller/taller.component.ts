@@ -877,6 +877,10 @@ Buscaroperacionservicioparam(){
         error => this.errorMessage = <any>error);
     }
 
+    cerrarModulo(){
+      window.history.go(-1);
+  }
+
     
     
     //INICIALIZA LAS FUNCIONES PARA QUE CARGEN AL MISMO INSTANTE
